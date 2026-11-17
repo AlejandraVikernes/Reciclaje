@@ -156,7 +156,7 @@
         </div>
         <h2 class="menu-title">Menú</h2>
         <ul>
-            <li><a href="PAEC.html">← Volver al Inicio</a></li>
+            <li><a href="index.html">← Volver al Inicio</a></li>
         </ul>
     </aside>
 
@@ -201,7 +201,7 @@
             ?>
         </div>
 
-        <a href="PAEC.html" class="btn-volver">Regresar a la Página Principal</a>
+        <a href="index.html" class="btn-volver">Regresar a la Página Principal</a>
     </main>
 
 </body>
