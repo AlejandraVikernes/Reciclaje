@@ -132,7 +132,6 @@
     <aside>
         <div class="logo-container">
             <div class="logo-wrapper">
-                <!-- Logotipo idéntico al del index (estilo Spooky Month / hojas puntiagudas) -->
                 <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <path d="M100 175 L100 105" stroke="#111111" stroke-width="11" stroke-linecap="round"/>
                     <path d="M100 175 L100 105" stroke="#4ade80" stroke-width="7" stroke-linecap="round"/>
