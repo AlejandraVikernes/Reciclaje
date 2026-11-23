@@ -10,8 +10,8 @@ html, body {
 
 html:has(body.pagina-principal),
 body.pagina-principal {
-    background-color: #050b14 !important;
-    display: block !important;
+    background-color: #050b14;
+    display: block;
 }
 
 .main-menu-container {
@@ -77,6 +77,14 @@ body.pagina-principal {
 
 .frase-bienvenida p:last-child {
     margin-bottom: 0;
+}
+
+.gracias-texto {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #4ade80;
+    font-weight: bold;
+    margin-top: 15px;
 }
 
 .galeria-naturaleza {
