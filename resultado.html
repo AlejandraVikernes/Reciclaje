@@ -33,12 +33,12 @@
         </div>
         <h2 class="menu-title">Menú</h2>
         <ul>
-            <li><a href="index.html">← Volver al Inicio</a></li>
+            <li><a href="index.html">Volver al Inicio</a></li>
         </ul>
     </aside>
 
     <main class="contenedor-form">
-        <h1>¡Gracias por tu Compromiso!</h1>
+        <h1>Gracias por tu Compromiso</h1>
         <p>Los datos enviados desde el formulario se han procesado correctamente:</p>
 
         <div id="contenido-resultado" class="resultado-box"></div>
@@ -78,17 +78,16 @@
                 <p><b>¿Separa residuos?:</b> ${separacion}</p>
                 <p><b>Acciones ambientales:</b> ${accion}</p>
                 <p><b>Compromisos seleccionados:</b> ${listaCompromisos}</p>
-                <p><b>Envases reciclados por semana:</b> ${piezas}</p>
+                <p><b>Comentario o propuesta:</b> ${comentario && comentario.trim() !== "" ? comentario : "Sin comentarios"}</p>
+                <hr>
+                <p><b>Reto didáctico (envases por semana):</b> ${piezas}</p>
                 <p><b>Proyección mensual (4 semanas):</b> ${mensual} envases</p>
                 <p><b>Proyección anual (52 semanas):</b> ${anual} envases (${kgAnuales} kg aprox.)</p>
-                <p><b>Comentario o propuesta:</b> ${comentario && comentario.trim() !== "" ? comentario : "Sin comentarios"}</p>
             `;
         } else {
             contenedor.innerHTML = "<p>No se han recibido datos del formulario.</p>";
         }
     </script>
 
-</body>
-</html>
 </body>
 </html>
