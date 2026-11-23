@@ -33,7 +33,7 @@
         </div>
         <h2 class="menu-title">Menú</h2>
         <ul>
-            <li><a href="index.html">← Volver al Inicio</a></li>
+            <li><a href="PAEC.html">← Volver al Inicio</a></li>
         </ul>
     </aside>
 
@@ -43,7 +43,7 @@
 
         <div id="contenido-resultado" class="resultado-box"></div>
 
-        <a href="index.html" class="btn-volver">Regresar a la Página Principal</a>
+        <a href="PAEC.html" class="btn-volver">Regresar a la Página Principal</a>
     </main>
 
     <script>
@@ -57,8 +57,12 @@
         const separacion = params.get("separacion");
         const accion = params.get("accion");
         const compromisos = params.getAll("compromisos");
-        const piezas = params.get("reto_piezas");
+        const piezas = Math.max(0, Number(params.get("reto_piezas")) || 0);
         const comentario = params.get("comentario");
+
+        const mensual = piezas * 4;
+        const anual = piezas * 52;
+        const kgAnuales = (anual * 0.025).toFixed(2);
 
         if (nombre) {
             let listaCompromisos = "Ninguno";
@@ -74,7 +78,9 @@
                 <p><b>¿Separa residuos?:</b> ${separacion}</p>
                 <p><b>Acciones ambientales:</b> ${accion}</p>
                 <p><b>Compromisos seleccionados:</b> ${listaCompromisos}</p>
-                <p><b>Botellas/envases reciclados por semana:</b> ${piezas}</p>
+                <p><b>Envases reciclados por semana:</b> ${piezas}</p>
+                <p><b>Proyección mensual (4 semanas):</b> ${mensual} envases</p>
+                <p><b>Proyección anual (52 semanas):</b> ${anual} envases (${kgAnuales} kg aprox.)</p>
                 <p><b>Comentario o propuesta:</b> ${comentario && comentario.trim() !== "" ? comentario : "Sin comentarios"}</p>
             `;
         } else {
@@ -82,5 +88,7 @@
         }
     </script>
 
+</body>
+</html>
 </body>
 </html>
