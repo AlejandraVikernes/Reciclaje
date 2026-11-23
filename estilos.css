@@ -1,24 +1,17 @@
-body {
+html, body {
     font-family: "Futura", Arial, sans-serif;
     background-color: #ffffff;
     color: #333;
     margin: 0;
     padding: 0;
     display: flex;
+    min-height: 100vh;
 }
 
+html:has(body.pagina-principal),
 body.pagina-principal {
-    display: block;
     background-color: #050b14 !important;
-    background: #050b14 !important;
-}
-
-html {
-    background-color: #050b14;
-}
-
-body.pagina-principal html {
-    background-color: #050b14;
+    display: block !important;
 }
 
 .main-menu-container {
@@ -331,6 +324,17 @@ label {
     color: #1e40af;
 }
 
+.radio-group, .checkbox-group {
+    margin-top: 5px;
+}
+
+.radio-group label, .checkbox-group label {
+    font-weight: normal;
+    display: inline-block;
+    margin-right: 15px;
+    color: #333;
+}
+
 input[type="text"], input[type="number"], select, textarea {
     width: 100%;
     padding: 8px;
@@ -340,7 +344,7 @@ input[type="text"], input[type="number"], select, textarea {
     font-family: "Futura", Arial, sans-serif;
 }
 
-input[type="submit"], a.btn-volver {
+input[type="submit"], button, a.btn-volver {
     display: inline-block;
     background-color: #1d4ed8;
     color: white;
@@ -354,7 +358,7 @@ input[type="submit"], a.btn-volver {
     margin-top: 10px;
 }
 
-input[type="submit"]:hover, a.btn-volver:hover {
+input[type="submit"]:hover, button:hover, a.btn-volver:hover {
     background-color: #1e40af;
     color: #ffffff;
 }
@@ -365,6 +369,10 @@ input[type="submit"]:hover, a.btn-volver:hover {
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 4px;
+}
+
+.resultado-box p {
+    margin: 8px 0;
 }
 
 footer {
@@ -386,4 +394,5 @@ footer {
     .galeria-naturaleza {
         grid-template-columns: 1fr;
     }
+}
 }
