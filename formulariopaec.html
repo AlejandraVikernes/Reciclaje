@@ -33,7 +33,7 @@
         </div>
         <h2 class="menu-title">Menú</h2>
         <ul>
-            <li><a href="index.html">← Volver al Menú Principal</a></li>
+            <li><a href="index.html">Volver al Menú Principal</a></li>
         </ul>
     </aside>
 
@@ -112,7 +112,7 @@
                             <strong id="calc-kg">0 kg</strong>
                         </div>
                     </div>
-                    <p class="nota-calculo" id="calc-nivel">Nivel inicial: ¡Escribe una cantidad para calcular tu impacto!</p>
+                    <p class="nota-calculo" id="calc-nivel">Nivel inicial: Escribe una cantidad para calcular tu impacto.</p>
                 </div>
             </div>
 
@@ -143,22 +143,19 @@
             outKg.textContent = `${kgAnuales} kg`;
 
             if (semanal === 0) {
-                outNivel.textContent = "Nivel inicial: ¡Escribe una cantidad para calcular tu impacto!";
+                outNivel.textContent = "Nivel inicial: Escribe una cantidad para calcular tu impacto.";
             } else if (semanal < 10) {
-                outNivel.textContent = "Huella en marcha: ¡Buen comienzo! Cada envase cuenta.";
+                outNivel.textContent = "Huella en marcha: Buen comienzo, cada envase cuenta.";
             } else if (semanal < 25) {
-                outNivel.textContent = "Eco-Aliado: ¡Excelente constancia semanal!";
+                outNivel.textContent = "Eco-Aliado: Excelente constancia semanal.";
             } else {
-                outNivel.textContent = "Héroe Eco-Venado: ¡Impacto ambiental sobresaliente!";
+                outNivel.textContent = "Héroe Eco-Venado: Impacto ambiental sobresaliente.";
             }
         }
 
         inputPiezas.addEventListener("input", actualizarCalculadora);
         actualizarCalculadora();
     </script>
-
-</body>
-</html>
 
 </body>
 </html>
