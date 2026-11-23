@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado del Compromiso | Eco-Venados</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
@@ -40,45 +41,46 @@
         <h1>¡Gracias por tu Compromiso!</h1>
         <p>Los datos enviados desde el formulario se han procesado correctamente:</p>
 
-        <div class="resultado-box">
-            <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $nombre = htmlspecialchars($_POST['nombre']);
-                $edad = htmlspecialchars($_POST['edad']);
-                $grupo = htmlspecialchars($_POST['grupo']);
-                $residuo = htmlspecialchars($_POST['residuo']);
-                $separacion = htmlspecialchars($_POST['separacion']);
-                $accion = htmlspecialchars($_POST['accion']);
-                $piezas = htmlspecialchars($_POST['reto_piezas']);
-                $comentario = htmlspecialchars($_POST['comentario']);
-
-                echo "<p><b>Nombre completo:</b> $nombre</p>";
-                echo "<p><b>Edad:</b> $edad</p>";
-                echo "<p><b>Grupo:</b> $grupo</p>";
-                echo "<p><b>Residuo frecuente:</b> $residuo</p>";
-                echo "<p><b>¿Separa residuos?:</b> $separacion</p>";
-                echo "<p><b>Acciones ambientales:</b> $accion</p>";
-                
-                if (!empty($_POST['compromisos'])) {
-                    echo "<p><b>Compromisos seleccionados:</b></p><ul>";
-                    foreach ($_POST['compromisos'] as $comp) {
-                        echo "<li>" . htmlspecialchars($comp) . "</li>";
-                    }
-                    echo "</ul>";
-                } else {
-                    echo "<p><b>Compromisos seleccionados:</b> Ninguno</p>";
-                }
-
-                echo "<p><b>Botellas/envases reciclados por semana:</b> $piezas</p>";
-                echo "<p><b>Comentario o propuesta:</b> " . ($comentario ? $comentario : "Sin comentarios") . "</p>";
-            } else {
-                echo "<p>No se han recibido datos por el método POST.</p>";
-            }
-            ?>
-        </div>
+        <div id="contenido-resultado" class="resultado-box"></div>
 
         <a href="PAEC.html" class="btn-volver">Regresar a la Página Principal</a>
     </main>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const contenedor = document.getElementById("contenido-resultado");
+
+        const nombre = params.get("nombre");
+        const edad = params.get("edad");
+        const grupo = params.get("grupo");
+        const residuo = params.get("residuo");
+        const separacion = params.get("separacion");
+        const accion = params.get("accion");
+        const compromisos = params.getAll("compromisos");
+        const piezas = params.get("reto_piezas");
+        const comentario = params.get("comentario");
+
+        if (nombre) {
+            let listaCompromisos = "Ninguno";
+            if (compromisos.length > 0) {
+                listaCompromisos = "<ul>" + compromisos.map(c => `<li>${c}</li>`).join("") + "</ul>";
+            }
+
+            contenedor.innerHTML = `
+                <p><b>Nombre completo:</b> ${nombre}</p>
+                <p><b>Edad:</b> ${edad}</p>
+                <p><b>Grupo:</b> ${grupo}</p>
+                <p><b>Residuo frecuente:</b> ${residuo}</p>
+                <p><b>¿Separa residuos?:</b> ${separacion}</p>
+                <p><b>Acciones ambientales:</b> ${accion}</p>
+                <p><b>Compromisos seleccionados:</b> ${listaCompromisos}</p>
+                <p><b>Botellas/envases reciclados por semana:</b> ${piezas}</p>
+                <p><b>Comentario o propuesta:</b> ${comentario && comentario.trim() !== "" ? comentario : "Sin comentarios"}</p>
+            `;
+        } else {
+            contenedor.innerHTML = "<p>No se han recibido datos del formulario.</p>";
+        }
+    </script>
 
 </body>
 </html>
