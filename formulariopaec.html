@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-
     <aside>
         <div class="logo-container">
             <div class="logo-wrapper">
@@ -36,27 +35,22 @@
             <li><a href="index.html">Volver al Menú Principal</a></li>
         </ul>
     </aside>
-
     <main class="contenedor-form">
         <h1>Formulario: Mi Compromiso con el Reciclaje</h1>
         <p>Completa este formulario para calcular tu impacto positivo y registrar tu compromiso ambiental.</p>
-
         <form action="resultado.html" method="GET">
             <div class="campo">
                 <label for="nombre">1. Nombre Completo:</label>
                 <input type="text" id="nombre" name="nombre" required>
             </div>
-
             <div class="campo">
                 <label for="edad">2. Edad:</label>
                 <input type="number" id="edad" name="edad" min="1" required>
             </div>
-
             <div class="campo">
                 <label for="grupo">3. Grupo / Grado:</label>
                 <input type="text" id="grupo" name="grupo" required>
             </div>
-
             <div class="campo">
                 <label for="residuo">4. Residuo que generas con mayor frecuencia:</label>
                 <select id="residuo" name="residuo" required>
@@ -67,7 +61,6 @@
                     <option value="Residuos Orgánicos">Residuos Orgánicos</option>
                 </select>
             </div>
-
             <div class="campo">
                 <label>5. ¿Separas tus residuos actualmente?</label>
                 <div class="radio-group">
@@ -76,12 +69,10 @@
                     <label><input type="radio" name="separacion" value="Algunas veces"> Algunas veces</label>
                 </div>
             </div>
-
             <div class="campo">
                 <label for="accion">6. ¿Qué acción realizas para cuidar el medio ambiente?</label>
                 <input type="text" id="accion" name="accion" placeholder="Ej. Llevo mi propia botella de agua reusable" required>
             </div>
-
             <div class="campo">
                 <label>7. Selecciona tu compromiso ambiental:</label>
                 <div class="checkbox-group">
@@ -92,11 +83,9 @@
                     <label><input type="checkbox" name="compromisos" value="Reciclar aparatos electrónicos en puntos limpios"> Reciclar aparatos electrónicos</label>
                 </div>
             </div>
-
             <div class="campo">
                 <label for="reto_piezas">8. Calculadora del Reto Didáctico: ¿Cuántos envases o botellas reciclas a la semana?</label>
                 <input type="number" id="reto_piezas" name="reto_piezas" min="0" value="0" required>
-
                 <div class="calculadora-reto">
                     <div class="calculadora-grid">
                         <div class="dato-calculo">
@@ -115,33 +104,27 @@
                     <p class="nota-calculo" id="calc-nivel">Nivel inicial: Escribe una cantidad para calcular tu impacto.</p>
                 </div>
             </div>
-
             <div class="campo">
                 <label for="comentario">9. Comentario o Propuesta de Mejora:</label>
                 <textarea id="comentario" name="comentario" rows="4" placeholder="Escribe tu idea para mejorar el reciclaje en el plantel..."></textarea>
             </div>
-
             <button type="submit">Enviar Compromiso</button>
         </form>
     </main>
-
     <script>
         const inputPiezas = document.getElementById("reto_piezas");
         const outMensual = document.getElementById("calc-mensual");
         const outAnual = document.getElementById("calc-anual");
         const outKg = document.getElementById("calc-kg");
         const outNivel = document.getElementById("calc-nivel");
-
         function actualizarCalculadora() {
             const semanal = Math.max(0, Number(inputPiezas.value) || 0);
             const mensual = semanal * 4;
             const anual = semanal * 52;
             const kgAnuales = (anual * 0.025).toFixed(2);
-
             outMensual.textContent = mensual.toLocaleString("es-MX");
             outAnual.textContent = anual.toLocaleString("es-MX");
             outKg.textContent = `${kgAnuales} kg`;
-
             if (semanal === 0) {
                 outNivel.textContent = "Nivel inicial: Escribe una cantidad para calcular tu impacto.";
             } else if (semanal < 10) {
@@ -152,10 +135,8 @@
                 outNivel.textContent = "Héroe Eco-Venado: Impacto ambiental sobresaliente.";
             }
         }
-
         inputPiezas.addEventListener("input", actualizarCalculadora);
         actualizarCalculadora();
     </script>
-
 </body>
 </html>
