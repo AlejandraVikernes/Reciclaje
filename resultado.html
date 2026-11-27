@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-
     <aside>
         <div class="logo-container">
             <div class="logo-wrapper">
@@ -36,20 +35,15 @@
             <li><a href="index.html">Volver al Inicio</a></li>
         </ul>
     </aside>
-
     <main class="contenedor-form">
         <h1>Gracias por tu Compromiso</h1>
         <p>Los datos enviados desde el formulario se han procesado correctamente:</p>
-
         <div id="contenido-resultado" class="resultado-box"></div>
-
         <a href="index.html" class="btn-volver">Regresar a la Página Principal</a>
     </main>
-
     <script>
         const params = new URLSearchParams(window.location.search);
         const contenedor = document.getElementById("contenido-resultado");
-
         const nombre = params.get("nombre");
         const edad = params.get("edad");
         const grupo = params.get("grupo");
@@ -59,35 +53,31 @@
         const compromisos = params.getAll("compromisos");
         const piezas = Math.max(0, Number(params.get("reto_piezas")) || 0);
         const comentario = params.get("comentario");
-
         const mensual = piezas * 4;
         const anual = piezas * 52;
         const kgAnuales = (anual * 0.025).toFixed(2);
-
         if (nombre) {
             let listaCompromisos = "Ninguno";
             if (compromisos.length > 0) {
                 listaCompromisos = "<ul>" + compromisos.map(c => `<li>${c}</li>`).join("") + "</ul>";
             }
-
             contenedor.innerHTML = `
-                <p><b>Nombre completo:</b> ${nombre}</p>
-                <p><b>Edad:</b> ${edad}</p>
-                <p><b>Grupo:</b> ${grupo}</p>
-                <p><b>Residuo frecuente:</b> ${residuo}</p>
-                <p><b>¿Separa residuos?:</b> ${separacion}</p>
-                <p><b>Acciones ambientales:</b> ${accion}</p>
-                <p><b>Compromisos seleccionados:</b> ${listaCompromisos}</p>
-                <p><b>Comentario o propuesta:</b> ${comentario && comentario.trim() !== "" ? comentario : "Sin comentarios"}</p>
+                <p><strong>Nombre completo:</strong> ${nombre}</p>
+                <p><strong>Edad:</strong> ${edad}</p>
+                <p><strong>Grupo:</strong> ${grupo}</p>
+                <p><strong>Residuo frecuente:</strong> ${residuo}</p>
+                <p><strong>¿Separa residuos?:</strong> ${separacion}</p>
+                <p><strong>Acciones ambientales:</strong> ${accion}</p>
+                <p><strong>Compromisos seleccionados:</strong> ${listaCompromisos}</p>
+                <p><strong>Comentario o propuesta:</strong> ${comentario && comentario.trim() !== "" ? comentario : "Sin comentarios"}</p>
                 <hr>
-                <p><b>Reto didáctico (envases por semana):</b> ${piezas}</p>
-                <p><b>Proyección mensual (4 semanas):</b> ${mensual} envases</p>
-                <p><b>Proyección anual (52 semanas):</b> ${anual} envases (${kgAnuales} kg aprox.)</p>
+                <p><strong>Reto didáctico (envases por semana):</strong> ${piezas}</p>
+                <p><strong>Proyección mensual (4 semanas):</strong> ${mensual} envases</p>
+                <p><strong>Proyección anual (52 semanas):</strong> ${anual} envases (${kgAnuales} kg aprox.)</p>
             `;
         } else {
             contenedor.innerHTML = "<p>No se han recibido datos del formulario.</p>";
         }
     </script>
-
 </body>
 </html>
